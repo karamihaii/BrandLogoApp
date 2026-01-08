@@ -1,5 +1,5 @@
 import { Tabs } from "expo-router";
-import { Ionicons, MaterialIcons } from "@expo/vector-icons";
+import { Feather, Ionicons, MaterialIcons } from "@expo/vector-icons";
 import colors from "../styles/colors";
 import React from "react";
 
@@ -20,7 +20,7 @@ export default function TabsLayout() {
       }}
     >
       <Tabs.Screen
-        name="home"
+        name="index"
         options={{
           headerTitle: "Home",
           tabBarIcon: ({ focused, color }) => (
@@ -46,11 +46,7 @@ export default function TabsLayout() {
         options={{
           headerTitle: "Browse",
           tabBarIcon: ({ focused, color }) => (
-            <Ionicons
-              name={focused ? "school" : "school-outline"}
-              size={24}
-              color={color}
-            />
+            <Feather name="search" size={24} color={color} />
           ),
         }}
       />
