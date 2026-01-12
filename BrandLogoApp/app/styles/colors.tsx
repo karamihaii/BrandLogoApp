@@ -20,7 +20,7 @@ const colors = {
   // Neutrals
   white: "#FFFFFF",
   lightGrey: "#E7EDF4",
-  mediumGrey: "#9FAEC0",
+  mediumGrey: "#81AAD9",
   darkGrey: "#4A5B70",
 
   // Text
