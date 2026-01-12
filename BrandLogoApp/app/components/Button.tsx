@@ -1,6 +1,6 @@
 // rnfes
-import { StyleSheet, Text, TouchableHighlight } from "react-native";
 import React from "react";
+import { StyleSheet, Text, TouchableHighlight } from "react-native";
 import colors from "../styles/colors";
 
 
@@ -15,8 +15,8 @@ type propsType = {
 const Button: React.FC<propsType> = ({
   title,
   color = colors.primary,
-  textColor = colors.darkBackground,
-  underlayColor = colors.darkGrey,
+  textColor = colors.lightBackground,
+  underlayColor = colors.lightBackground,
   onPress,
 }) => {
   return (
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     width: 120,
     borderWidth: 2,
     borderRadius: 10,
-    borderColor: colors.darkGrey,
+    borderColor: colors.lightBackground,
     // justifyContent: "center",
     alignItems: "center",
     //marginStart: 10,
