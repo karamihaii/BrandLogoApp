@@ -1,12 +1,12 @@
-import { StyleSheet, Text, View } from "react-native";
 import React from "react";
+import { Text, View } from "react-native";
 import defaultStyles from "../styles/defaultStyles";
 
 
 export default function SchoolScreen() {
   return (
     <View style={defaultStyles.pageContainer}>
-      <Text style={defaultStyles.bodyText}>My School</Text>
+      <Text style={defaultStyles.bodyText}>Browse</Text>
     </View>
   );
 }

@@ -2,8 +2,9 @@
 import { useRouter } from "expo-router";
 import { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
-import Button from "./components/Button";
-import TextField from "./components/TextField";
+
+import Button from "@/components/Button";
+import TextField from "@/components/TextField";
 import colors from "./styles/colors";
 
 
@@ -16,7 +17,7 @@ export default function IndexScreen() {
     if (name != "" && activity != "") {
       setName(name);
       router.push({ pathname: "/(tabs)", params: { name, activity } });
-    } else alert("Please enter your name and activity");
+    } else alert("Please enter your username and password");
   };
 
   return (
@@ -28,6 +29,7 @@ export default function IndexScreen() {
         placeholder="Password"
         value={activity}
         onChangeText={setActivity}
+        secure
       />
 
       <Button title="Login" onPress={openTabNav}  />

@@ -1,12 +1,12 @@
 import { Image, StyleSheet, Text, View } from "react-native";
-import colors from "../styles/colors";
+import colors from "../app/styles/colors";
 
 
 export default function AppHeader() {
   return <View style={styles.container}>
     
     <Image
-        source={require("../../assets/images/mountain.png")}
+        source={require("../assets/images/mountain.png")}
         style = {styles.logoContainer}
     />
     <Text style={styles.textContainer}>hello</Text>

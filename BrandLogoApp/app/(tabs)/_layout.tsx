@@ -1,9 +1,9 @@
-import { Tabs } from "expo-router";
 import { Feather, Ionicons, MaterialIcons } from "@expo/vector-icons";
-import colors from "../styles/colors";
+import { Tabs } from "expo-router";
 import React from "react";
 import { View } from "react-native";
-import AppHeader from "../components/AppHeader";
+import AppHeader from "../../components/AppHeader";
+import colors from "../styles/colors";
 
 export default function TabsLayout() {
   return (
