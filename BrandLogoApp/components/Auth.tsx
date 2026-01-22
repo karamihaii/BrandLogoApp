@@ -12,13 +12,16 @@ export default function IndexScreen() {
   const router = useRouter();
   const [name, setName] = useState<string>("");
   const [activity, setActivity] = useState<string>("");
+  // used chatGPT to find the hasNmber test https://chatgpt.com/share/69726e74-ecb8-800f-a165-76d2ef726f24
+  const hasNumber = (str: string) => /\d/.test(str);
+
 
   const openTabNav = () => {
-    if (name != "" && activity != "" && activity.length >= 6) {
+    if (name != "" && activity != "" && activity.length >= 6 && hasNumber(activity)) {
       setName(name);
       console.log(name, activity);
       router.push({ pathname: "/(tabs)", params: { name, activity } });
-    } else alert("Please enter your username and password and make sure password is at least 6 digits");
+    } else alert("Please enter your username and password and make sure password is at least 6 characters and contains a number");
   };
 
   return (
