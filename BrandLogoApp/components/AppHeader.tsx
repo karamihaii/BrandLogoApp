@@ -1,4 +1,5 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import MaterialIcons from "@expo/vector-icons/build/MaterialIcons";
+import { Image, StyleSheet, Text, TouchableHighlight, View } from "react-native";
 import colors from "../app/styles/colors";
 
 
@@ -9,13 +10,30 @@ export default function AppHeader() {
         source={require("../assets/images/mountain.png")}
         style = {styles.logoContainer}
     />
-    <Text style={styles.textContainer}>hello</Text>
+    <Text style={styles.text}>Ski Sketcher</Text>
+    <TouchableHighlight onPress = {() => console.log("log out")}>
+      <MaterialIcons name="logout" style = {styles.logout} size={50} />
+    </TouchableHighlight>
+    
   </View>;
 }
 const styles = StyleSheet.create({
   container: {
     height: 100,
     backgroundColor: colors.mediumGrey,
+    flexDirection: "row",
+    
+  },
+  text:{
+    fontSize: 30,
+    marginTop: 50,
+    paddingHorizontal: 5,
+    color: colors.lightBackground
+  },
+  logout:{
+    marginTop: 40,
+    paddingHorizontal: 25,
+    color: colors.lightBackground
   },
   logoContainer: {
     height: 60,

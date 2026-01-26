@@ -10,8 +10,8 @@ import TextField from "@/components/TextField";
 
 export default function IndexScreen() {
   const router = useRouter();
-  const [name, setName] = useState<string>("");
-  const [activity, setActivity] = useState<string>("");
+  const [name, setName] = useState<string>("@gmail.com");
+  const [activity, setActivity] = useState<string>("123456");
   // used chatGPT to find the hasNmber test https://chatgpt.com/share/69726e74-ecb8-800f-a165-76d2ef726f24
   const hasNumber = (str: string) => /\d/.test(str);
 
