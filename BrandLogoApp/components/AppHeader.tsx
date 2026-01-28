@@ -1,9 +1,24 @@
+import { supabase } from "@/utils/supabase";
 import MaterialIcons from "@expo/vector-icons/build/MaterialIcons";
-import { Image, StyleSheet, Text, TouchableHighlight, View } from "react-native";
+import { usePathname } from "expo-router";
+import { Alert, Image, StyleSheet, Text, TouchableHighlight, View } from "react-native";
 import colors from "../app/styles/colors";
 
 
 export default function AppHeader() {
+  const pathname = usePathname();
+  const title = getTitleFromPath(pathname);
+  async function handleLogout() {
+    try {
+      const { error } = await supabase.auth.signOut();
+      if (error) {
+        console.error("Logout error:", error);
+        Alert.alert("Logout failed", error.message);
+      }
+    } catch (err: any) {
+      Alert.alert("Logout failed", err?.message ?? String(err));
+    }
+  }
   return <View style={styles.container}>
     
     <Image
@@ -11,7 +26,7 @@ export default function AppHeader() {
         style = {styles.logoContainer}
     />
     <Text style={styles.text}>Ski Sketcher</Text>
-    <TouchableHighlight onPress = {() => console.log("log out")}>
+    <TouchableHighlight onPress = {handleLogout}>
       <MaterialIcons name="logout" style = {styles.logout} size={50} />
     </TouchableHighlight>
     
@@ -46,3 +61,7 @@ const styles = StyleSheet.create({
     color: colors.darkBackground,
   }
 });
+function getTitleFromPath(pathname: string) {
+  throw new Error("Function not implemented.");
+}
+

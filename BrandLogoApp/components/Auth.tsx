@@ -1,43 +1,101 @@
 import { useRouter } from "expo-router";
-import { useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { useEffect, useState } from "react";
+import { Alert, AppState, AppStateStatus, StyleSheet, Text, View } from "react-native";
 
 import colors from "@/app/styles/colors";
 import Button from "@/components/Button";
 import TextField from "@/components/TextField";
+import { supabase } from "@/utils/supabase";
 
 
 
 export default function IndexScreen() {
   const router = useRouter();
-  const [name, setName] = useState<string>("@gmail.com");
-  const [activity, setActivity] = useState<string>("123456");
+  const [email, setEmail] = useState<string>("@gmail.com");
+  const [password, setPassword] = useState<string>("123456");
   // used chatGPT to find the hasNmber test https://chatgpt.com/share/69726e74-ecb8-800f-a165-76d2ef726f24
   const hasNumber = (str: string) => /\d/.test(str);
 
 
   const openTabNav = () => {
-    if (name != "" && activity != "" && activity.length >= 6 && hasNumber(activity)) {
-      setName(name);
-      console.log(name, activity);
-      router.push({ pathname: "/(tabs)", params: { name, activity } });
+    if (email != "" && password != "" && password.length >= 6 && hasNumber(password)) {
+      setEmail(email);
+      console.log(email, password);
+      router.push({ pathname: "/(tabs)", params: { email, password } });
     } else alert("Please enter your username and password and make sure password is at least 6 characters and contains a number");
   };
+
+  useEffect(() => {
+    const handleAppStateChange = (nextState: AppStateStatus) => {
+      if (nextState === "active") {
+        supabase.auth.startAutoRefresh();
+      } else {
+        try {
+          supabase.auth.stopAutoRefresh();
+        } catch {}
+      }
+    };
+
+    const subscription = AppState.addEventListener(
+      "change",
+      handleAppStateChange,
+    );
+
+    if (AppState.currentState === "active") {
+      supabase.auth.startAutoRefresh();
+    }
+
+    return () => {
+      if (typeof subscription?.remove === "function") {
+        subscription.remove();
+      }
+      try {
+        supabase.auth.stopAutoRefresh();
+      } catch {}
+    };
+  }, []);
+
+  async function signInWithEmail() {
+    if (email != "" && password != "" && password.length >= 6 && hasNumber(password)) {
+      const { error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+
+      if (error) {
+        Alert.alert(error.message);
+      }
+    } else alert("Please enter your username and password and make sure password is at least 6 characters and contains a number");
+    
+  }
+
+  async function signUpWithEmail() {
+    if (email != "" && password != "" && password.length >= 6 && hasNumber(password)) {
+      const { error } = await supabase.auth.signUp({
+        email,
+        password,
+      });
+
+      if (error) {
+        Alert.alert(error.message);
+      }
+    } else alert("Please enter your username and password and make sure password is at least 6 characters and contains a number");
+  }
 
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Ski Sketcher</Text>
-      <TextField placeholder="Username" value={name} onChangeText={setName} />
+      <TextField placeholder="Username" value={email} onChangeText={setEmail} />
 
       <TextField
         placeholder="Password"
-        value={activity}
-        onChangeText={setActivity}
+        value={password}
+        onChangeText={setPassword}
         secure
       />
 
-      <Button title="Login" onPress={openTabNav}  />
-      <Button title="Sign Up" onPress={openTabNav}  />
+      <Button title="Login" onPress={signInWithEmail}  />
+      <Button title="Sign Up" onPress={signUpWithEmail}  />
     </View>
   );
 }

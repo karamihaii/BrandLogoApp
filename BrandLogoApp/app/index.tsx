@@ -1,13 +1,32 @@
 
-import { StyleSheet, View } from "react-native";
+import { ActivityIndicator, StyleSheet, View } from "react-native";
 
 import Auth from "@/components/Auth";
+import { useAuth } from "@/components/AuthProvider";
+import { useRouter } from "expo-router";
+import { useEffect } from "react";
 import colors from "./styles/colors";
 
 
 
 export default function IndexScreen() {
+  const router = useRouter();
+  const { session, isLoading } = useAuth();
+  useEffect(() => {
+    if (session?.user) {
+      // Replace prevents going "back" to login screen
+      router.replace("/(tabs)");
+    }
+  }, [router, session]);
 
+  if (isLoading) {
+    return <ActivityIndicator style={{ marginTop: 40 }} />;
+  }
+
+  if (session?.user) {
+    // Redirecting — nothing to render
+    return null;
+  }
 
   
 
