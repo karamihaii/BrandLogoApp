@@ -1,5 +1,5 @@
-import colors from "@/app/styles/colors";
-import defaultStyles from "@/app/styles/defaultStyles";
+import colors from "@/styles/colors";
+import defaultStyles from "@/styles/defaultStyles";
 import React, { useState } from "react";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
 

@@ -1,7 +1,7 @@
 // rnfes
 import React from "react";
 import { StyleSheet, Text, TouchableHighlight } from "react-native";
-import colors from "../app/styles/colors";
+import colors from "../styles/colors";
 
 
 type propsType = {

@@ -2,12 +2,12 @@ import { supabase } from "@/utils/supabase";
 import MaterialIcons from "@expo/vector-icons/build/MaterialIcons";
 import { usePathname } from "expo-router";
 import { Alert, Image, StyleSheet, Text, TouchableHighlight, View } from "react-native";
-import colors from "../app/styles/colors";
+import colors from "../styles/colors";
 
 
 export default function AppHeader() {
   const pathname = usePathname();
-  const title = getTitleFromPath(pathname);
+  //const title = getTitleFromPath(pathname);
   async function handleLogout() {
     try {
       const { error } = await supabase.auth.signOut();

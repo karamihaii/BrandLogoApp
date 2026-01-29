@@ -2,14 +2,14 @@ import { useRouter } from "expo-router";
 import { useEffect, useState } from "react";
 import { Alert, AppState, AppStateStatus, StyleSheet, Text, View } from "react-native";
 
-import colors from "@/app/styles/colors";
 import Button from "@/components/Button";
 import TextField from "@/components/TextField";
+import colors from "@/styles/colors";
 import { supabase } from "@/utils/supabase";
 
 
 
-export default function IndexScreen() {
+export default function Auth() {
   const router = useRouter();
   const [email, setEmail] = useState<string>("@gmail.com");
   const [password, setPassword] = useState<string>("123456");
