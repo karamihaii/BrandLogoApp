@@ -67,7 +67,7 @@ export default function TabsLayout() {
           }}
         />
         <Tabs.Screen
-          name="editProfile"
+          name="quiz"
           options={{
             headerTitle: "Edit Profile",
             tabBarIcon: ({ focused, color }) => (

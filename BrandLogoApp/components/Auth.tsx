@@ -112,5 +112,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: colors.textOnDark,
     marginBottom: 20,
+    fontFamily: "Georgia",
   },
 });

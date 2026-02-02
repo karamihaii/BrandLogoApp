@@ -30,7 +30,7 @@ useEffect(() => {
 
   loadProfile();
 }, [session]);
-
+//used ChatGpt to implement a scroll to refresh on my customize screen https://chatgpt.com/share/6980e8ef-be44-800f-8526-beb5088c9d20 
 const onRefresh = useCallback(async () => {
     setRefreshing(true);
     if (!session?.user) return;
@@ -56,7 +56,7 @@ const onRefresh = useCallback(async () => {
       }
     >
       <Text style={defaultStyles.bodyText}>
-        Customize your coolest {skiOrBoard}
+        Customize your coolest {skiOrBoard}'s
       </Text>
     </ScrollView>
   );

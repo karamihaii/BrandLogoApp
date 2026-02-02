@@ -11,6 +11,7 @@ const defaultStyles = StyleSheet.create({
   bodyText: {
     fontSize: 20,
     color: colors.textOnDark,
+    fontFamily: "Georgia",
   },
   inputBoxes: {
     padding: 5,
@@ -19,9 +20,21 @@ const defaultStyles = StyleSheet.create({
     marginVertical: 5,
     borderWidth: 2,
     fontSize: 16,
-    color: colors.primarylight,
+    color: colors.primaryLight,
     borderRadius: 5,
   },
+  headerText:{
+    fontSize: 35,
+    color: colors.textOnDark,
+    marginTop: -550,
+    fontFamily: "Georgia"
+  },
+  questionText:{
+    fontSize: 25,
+    color: colors.lightGrey,
+    textAlign: "left",
+    fontFamily: "Georgia"
+  }
 });
 
 export default defaultStyles;
