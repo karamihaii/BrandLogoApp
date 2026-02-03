@@ -9,9 +9,10 @@ const defaultStyles = StyleSheet.create({
     alignItems: "center",
   },
   bodyText: {
-    fontSize: 20,
+    fontSize: 35,
     color: colors.textOnDark,
     fontFamily: "Georgia",
+    textAlign: "center",
   },
   inputBoxes: {
     padding: 5,
@@ -34,7 +35,14 @@ const defaultStyles = StyleSheet.create({
     color: colors.lightGrey,
     textAlign: "left",
     fontFamily: "Georgia"
-  }
+  },
+  tinyText:{
+    fontSize: 15,
+    color: colors.lightGrey,
+    
+    fontFamily: "Georgia"
+  },
+
 });
 
 export default defaultStyles;

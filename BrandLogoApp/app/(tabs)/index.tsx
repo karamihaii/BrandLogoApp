@@ -24,6 +24,11 @@ export default function EditProfileScreen() {
   const [skiOrBoard, setSkiOrBoard] = useState("");
   const [loading, setLoading] = useState(false); // screen action loading
   const [initialLoading, setInitialLoading] = useState(true); // loading while fetching profile
+  const [skiCount, setSkiCount] = useState(0);
+  const [snowboardCount, setSnowboardCount] = useState(0);
+  const [totalCount, setTotalCount] = useState(skiCount + snowboardCount);
+  
+
 
   // Load profile when component mounts or when session changes
   /* Subscribe to realtime updates for the current user's profile */
@@ -98,6 +103,16 @@ export default function EditProfileScreen() {
       Alert.alert("Must choose Ski or Snowboard.");
       return false;
     }
+    const ski = ["Ski"];
+    if (ski.includes(skiOrBoard.trim())) {
+      setSkiCount(skiCount + 1)
+    }
+    const snowboard = ["Snowboard"];
+    if (snowboard.includes(skiOrBoard.trim())) {
+      setSnowboardCount(snowboardCount + 1)
+    }
+    setTotalCount(skiCount + snowboardCount);
+    
     return true;
   }
 
