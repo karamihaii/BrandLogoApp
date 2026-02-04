@@ -27,7 +27,7 @@ const defaultStyles = StyleSheet.create({
   headerText:{
     fontSize: 35,
     color: colors.textOnDark,
-    marginTop: -550,
+    marginTop: "-55%",
     fontFamily: "Georgia"
   },
   questionText:{
