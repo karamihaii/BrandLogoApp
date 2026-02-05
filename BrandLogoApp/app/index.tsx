@@ -6,6 +6,7 @@ import { useAuth } from "@/components/AuthProvider";
 import { useRouter } from "expo-router";
 import { useEffect } from "react";
 import colors from "../styles/colors";
+import React from "react";
 
 
 

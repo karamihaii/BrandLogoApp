@@ -3,6 +3,7 @@ import MaterialIcons from "@expo/vector-icons/build/MaterialIcons";
 import { usePathname } from "expo-router";
 import { Alert, Image, StyleSheet, Text, TouchableHighlight, View } from "react-native";
 import colors from "../styles/colors";
+import React from "react";
 
 
 export default function AppHeader() {
