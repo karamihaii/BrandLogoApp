@@ -15,7 +15,6 @@ export default function EditProfileScreen() {
   const [value, setValue] = useState(0);
   const [message, setMessage] = useState("");
 
-  // ✅ FIX: move state updates into useEffect
   useEffect(() => {
     if (value >= 3) {
       setMessage("You should try black diamonds");
@@ -53,13 +52,4 @@ export default function EditProfileScreen() {
   );
 }
 
-const styles = StyleSheet.create({
-  form: {
-    marginBottom: 24,
-  },
-  center: {
-    justifyContent: "center",
-    alignItems: "center",
-  },
-});
 
